@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>25 кращих ігор на папері — Татусігри</title>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','930130916285145');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=930130916285145&ev=PageView&noscript=1"/></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,900;1,9..144,700;1,9..144,900&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --o:#F05A1A;--o2:#FF8547;--o3:#FFBE99;
+  --y:#F5C842;--yd:#D4A020;
+  --cr:#FDF6ED;--pa:#F7ECD8;--pa2:#EFE0C4;
+  --br:#1E0D04;--br2:#5A2E10;--br3:#9A6040;
+  --gr:#2A9D76;--grl:#E4F7F1;
+  --wh:#FFFEF9;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cr);color:var(--br);overflow-x:hidden;cursor:none}
+
+/* ── PENCIL CURSOR ── */
+#cur{
+  position:fixed;pointer-events:none;z-index:99999;
+  width:28px;height:28px;
+  transform:translate(-4px,-24px);
+  transition:transform .1s;
+}
+#cur svg{width:28px;height:28px;filter:drop-shadow(1px 2px 3px rgba(0,0,0,.25))}
+#cur.grow svg{transform:scale(1.4) rotate(-10deg);transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
+@media(hover:none){#cur{display:none}body{cursor:auto}}
+
+/* ── STICKY MOBILE ── */
+.sbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;background:var(--br);padding:12px 20px;align-items:center;justify-content:space-between;gap:12px;border-top:2.5px solid var(--o)}
+@media(max-width:640px){.sbar{display:flex}}
+.sbar p{color:rgba(255,255,255,.5);font-size:12px;font-weight:800;line-height:1.3}
+.sbar a{background:var(--o);color:#fff;border-radius:50px;padding:11px 22px;font-weight:900;font-size:14px;text-decoration:none;box-shadow:0 3px 0 rgba(0,0,0,.25);white-space:nowrap}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:64px;
+  background:rgba(253,246,237,.9);
+  backdrop-filter:blur(20px) saturate(1.5);
+  border-bottom:1.5px solid rgba(240,90,26,.12);
+}
+@media(max-width:640px){nav{padding:0 18px}}
+.logo{font-family:'Fraunces',serif;font-weight:900;font-size:20px;color:var(--br);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-mark{width:30px;height:30px;background:var(--o);border-radius:9px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 rgba(0,0,0,.22)}
+.logo-mark svg{width:16px;height:16px;fill:#fff}
+.nav-r{display:flex;align-items:center;gap:14px}
+.nav-lnk{font-size:13px;font-weight:800;color:var(--br3);text-decoration:none;transition:color .2s}
+.nav-lnk:hover{color:var(--o)}
+@media(max-width:500px){.nav-lnk{display:none}}
+.nav-buy{background:var(--o);color:#fff;border-radius:50px;padding:9px 22px;font-weight:900;font-size:13px;text-decoration:none;box-shadow:0 4px 0 rgba(0,0,0,.2),0 8px 20px rgba(240,90,26,.25);transition:transform .15s,box-shadow .15s}
+.nav-buy:hover{transform:translateY(-2px);box-shadow:0 6px 0 rgba(0,0,0,.2),0 12px 28px rgba(240,90,26,.3)}
+.nav-buy:active{transform:translateY(1px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;
+  padding-top:64px;
+  position:relative;overflow:hidden;
+  display:grid;place-items:center;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 75% 85% at 105% -5%,#FFD9B0 0%,transparent 55%),
+    radial-gradient(ellipse 55% 55% at -5% 95%,#FFEAA0 0%,transparent 55%),
+    radial-gradient(ellipse 85% 65% at 50% 50%,#FFF0DC 0%,transparent 70%),
+    var(--cr);
+  animation:bgBreath 14s ease-in-out infinite alternate;
+}
+@keyframes bgBreath{0%{filter:brightness(1)}100%{filter:brightness(1.04) hue-rotate(5deg)}}
+
+/* SVG doodle squiggles in bg */
+.doodle{position:absolute;pointer-events:none}
+
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1120px;width:100%;padding:0 32px;
+  display:grid;grid-template-columns:1fr 430px;gap:56px;align-items:center;
+}
+@media(max-width:880px){.hero-inner{grid-template-columns:1fr;padding:60px 20px}.hero-card-side{display:none}}
+
+/* hero text */
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--y);color:var(--br);font-weight:900;font-size:11px;letter-spacing:.5px;
+  padding:6px 16px;border-radius:50px;border:2px solid rgba(30,13,4,.12);
+  margin-bottom:22px;
+  opacity:0;animation:popIn .55s .05s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.pill-dot{width:7px;height:7px;background:var(--o);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes popIn{from{opacity:0;transform:scale(.6) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+
+.hero-h{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:clamp(52px,8vw,100px);
+  line-height:.88;letter-spacing:-3px;
+  color:var(--br);margin-bottom:28px;
+}
+.hero-h .l1{display:block;opacity:0;animation:slideUp .65s .15s cubic-bezier(.22,1,.36,1) forwards}
+.hero-h .l2{display:block;color:var(--o);font-style:italic;opacity:0;animation:slideUp .65s .28s cubic-bezier(.22,1,.36,1) forwards}
+.hero-h .l3{
+  display:inline-block;position:relative;
+  opacity:0;animation:slideUp .65s .42s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-h .l3::after{
+  content:'';position:absolute;bottom:4px;left:0;right:0;height:9px;
+  background:var(--y);border-radius:4px;z-index:-1;
+  transform:scaleX(0);transform-origin:left;
+  animation:grow .7s 1s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes grow{to{transform:scaleX(1)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-lead{
+  font-size:17px;font-weight:700;color:var(--br2);line-height:1.65;
+  max-width:440px;margin-bottom:32px;
+  opacity:0;animation:slideUp .65s .5s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* value chips */
+.chips{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:38px;
+  opacity:0;animation:slideUp .65s .6s cubic-bezier(.22,1,.36,1) forwards;
+}
+.chip{
+  background:rgba(240,90,26,.07);border:1.5px solid rgba(240,90,26,.18);
+  color:var(--br2);font-size:12px;font-weight:800;
+  padding:6px 13px;border-radius:50px;
+  transition:background .2s,border-color .2s;
+}
+.chip:hover{background:rgba(240,90,26,.14);border-color:rgba(240,90,26,.35)}
+
+.hero-btns{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  opacity:0;animation:slideUp .65s .7s cubic-bezier(.22,1,.36,1) forwards;
+}
+.btn-main{
+  background:var(--o);color:#fff;border:none;border-radius:50px;
+  padding:18px 40px;font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  box-shadow:0 5px 0 rgba(0,0,0,.2),0 14px 36px rgba(240,90,26,.3);
+  transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden;
+}
+.btn-main::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);animation:shine 3s 2s infinite}
+@keyframes shine{to{left:150%}}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(0,0,0,.2),0 22px 46px rgba(240,90,26,.35)}
+.btn-main:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.btn-alt{display:flex;flex-direction:column;cursor:pointer;text-decoration:none}
+.btn-alt strong{font-size:15px;font-weight:900;color:var(--br)}
+.btn-alt small{font-size:11px;color:var(--br3);font-weight:700}
+
+/* ── HERO CARD ── */
+.hero-card-side{position:relative;opacity:0;animation:cardIn .75s .25s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes cardIn{from{opacity:0;transform:translateY(36px) rotate(3.5deg)}to{opacity:1;transform:rotate(2deg)}}
+.hero-card-side:hover{animation:none!important;transform:rotate(0deg) translateY(-6px)!important;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.hcard{background:var(--wh);border-radius:30px;border:3px solid rgba(30,13,4,.07);padding:26px 22px;box-shadow:0 2px 0 rgba(30,13,4,.05),0 18px 56px rgba(30,13,4,.13),10px 10px 0 var(--pa2)}
+.hc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.hc-dots{display:flex;gap:5px}
+.hc-dot{width:11px;height:11px;border-radius:50%}
+.hc-lbl{background:var(--y);color:var(--br);font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:3px 10px;border-radius:50px}
+.hc-title{font-family:'Fraunces',serif;font-size:18px;font-weight:900;color:var(--br);margin-bottom:14px;line-height:1.2}
+.gr{display:flex;align-items:center;gap:9px;background:var(--cr);border-radius:11px;padding:9px 11px;margin-bottom:5px;border:1.5px solid rgba(30,13,4,.06);transition:background .2s,transform .2s;animation:grSlide .35s both}
+.gr:nth-child(1){animation-delay:.85s}.gr:nth-child(2){animation-delay:.95s}.gr:nth-child(3){animation-delay:1.05s}.gr:nth-child(4){animation-delay:1.15s}.gr:nth-child(5){animation-delay:1.25s}
+@keyframes grSlide{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+.gr:hover{background:var(--o3);transform:translateX(4px)}
+.gn{width:24px;height:24px;background:var(--o);color:#fff;border-radius:7px;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.gname{font-size:12px;font-weight:800;color:var(--br);flex:1}
+.gdif{color:var(--o);font-size:10px}
+.hc-more{display:flex;align-items:center;gap:7px;margin-top:9px;background:var(--br);border-radius:50px;padding:9px 14px}
+.hc-more-dot{width:7px;height:7px;background:var(--o);border-radius:50%;animation:blink 1.5s infinite}
+.hc-more span{font-size:11px;font-weight:800;color:rgba(255,255,255,.6)}
+
+/* floating stickers */
+.fst{position:absolute;pointer-events:none;animation:flt 4s ease-in-out infinite}
+.fst.a{top:-26px;right:-14px;animation-delay:0s}
+.fst.b{bottom:-20px;left:-18px;animation-delay:1.7s}
+.fst.c{top:42%;right:-34px;animation-delay:.9s}
+@keyframes flt{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-9px) rotate(7deg)}}
+
+/* ── PROOF STRIP ── */
+.proof{
+  background:var(--y);padding:20px 32px;
+  border-top:2px solid rgba(30,13,4,.1);border-bottom:2px solid rgba(30,13,4,.1);
+  position:relative;overflow:hidden;
+}
+.proof::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 22px,rgba(30,13,4,.03) 22px,rgba(30,13,4,.03) 23px)}
+.proof-row{max-width:960px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;position:relative;z-index:1;gap:4px}
+.pi{text-align:center;padding:6px 20px}
+.pin{font-family:'Fraunces',serif;font-size:34px;font-weight:900;color:var(--br);display:block;line-height:1}
+.pil{font-size:10px;font-weight:900;color:rgba(30,13,4,.5);text-transform:uppercase;letter-spacing:.5px;margin-top:3px}
+
+/* ── MARQUEE ── */
+.mq-wrap{background:var(--o);padding:13px 0;overflow:hidden;border-top:2px solid rgba(0,0,0,.08);border-bottom:2px solid rgba(0,0,0,.08)}
+.mq{display:flex;white-space:nowrap;animation:mq 26s linear infinite}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-it{font-family:'Fraunces',serif;font-style:italic;font-size:14px;font-weight:700;color:rgba(255,255,255,.82);padding:0 26px;display:inline-flex;align-items:center;gap:14px}
+.mq-it::after{content:'✦';color:var(--y);font-style:normal}
+
+/* ── SECTIONS ── */
+.sec{padding:90px 32px;position:relative;overflow:hidden}
+@media(max-width:640px){.sec{padding:70px 20px}}
+.inner{max-width:1080px;margin:0 auto}
+.eyebrow{font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.sh{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(34px,5vw,58px);letter-spacing:-1.5px;line-height:1.0;margin-bottom:46px}
+
+/* ── MOMENTS SECTION (нова замість problem) ── */
+.moments-sec{background:var(--br)}
+.moments-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 75% 50%,rgba(240,90,26,.09) 0%,transparent 65%)}
+.moments-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.moments-grid{grid-template-columns:1fr}}
+.mc{
+  border-radius:22px;padding:30px 26px;
+  border:2px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.04);
+  position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.22,1,.36,1),background .3s,border-color .3s;
+}
+.mc:hover{transform:translateY(-5px) rotate(-.3deg);background:rgba(240,90,26,.09);border-color:rgba(240,90,26,.22)}
+.mc-num{font-family:'Fraunces',serif;font-size:72px;font-weight:900;color:rgba(255,255,255,.05);line-height:1;position:absolute;top:8px;right:16px}
+.mc-icon{width:50px;height:50px;background:rgba(255,255,255,.07);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;border:1.5px solid rgba(255,255,255,.1)}
+.mc-title{font-family:'Fraunces',serif;font-size:19px;font-weight:900;color:#fff;margin-bottom:8px}
+.mc-text{font-size:14px;font-weight:700;color:rgba(255,255,255,.42);line-height:1.6}
+
+/* ── HOW SECTION ── */
+.how-sec{background:var(--cr)}
+.steps{display:flex;flex-direction:column;gap:0;max-width:680px}
+.step{display:grid;grid-template-columns:68px 1fr;gap:0;align-items:stretch}
+.step-l{display:flex;flex-direction:column;align-items:center}
+.step-circle{
+  width:52px;height:52px;background:var(--o);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:#fff;
+  box-shadow:0 4px 0 rgba(0,0,0,.18),0 8px 18px rgba(240,90,26,.28);
+  position:relative;z-index:1;
+}
+.step-line{width:3px;flex:1;background:linear-gradient(to bottom,var(--o),var(--pa2));border-radius:2px}
+.step:last-child .step-line{display:none}
+.step-body{padding:0 0 44px 22px}
+.step-tag{display:inline-block;background:var(--pa);color:var(--br3);font-size:10px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:3px 10px;border-radius:50px;margin-bottom:10px;border:1.5px solid var(--pa2)}
+.step-title{font-family:'Fraunces',serif;font-size:24px;font-weight:900;color:var(--br);margin-bottom:8px;letter-spacing:-.5px}
+.step-desc{font-size:15px;font-weight:700;color:var(--br2);line-height:1.65}
+
+/* ── GAMES BENTO ── */
+.games-sec{background:var(--pa)}
+.games-sec::before{content:'';position:absolute;top:-80px;right:-80px;width:440px;height:440px;background:radial-gradient(circle,rgba(240,90,26,.07) 0%,transparent 70%);pointer-events:none}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+@media(max-width:860px){.bento{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:540px){.bento{grid-template-columns:repeat(2,1fr)}}
+.bc{background:var(--wh);border-radius:22px;border:2.5px solid rgba(30,13,4,.07);padding:22px 18px;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.bc:hover{transform:translateY(-7px) scale(1.02);box-shadow:0 18px 44px rgba(240,90,26,.16);border-color:var(--o)}
+.bc:hover .bci{transform:scale(1.2) rotate(11deg)}
+.bc:hover .bcn{color:var(--o)}
+.b1{grid-column:span 3}.b2{grid-column:span 6}.b3{grid-column:span 3}
+.b4{grid-column:span 4}.b5{grid-column:span 4}.b6{grid-column:span 4}
+.b7{grid-column:span 3}.b8{grid-column:span 3}.b9{grid-column:span 6}
+@media(max-width:860px){.b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8,.b9{grid-column:span 2}.b2,.b5,.b9{grid-column:span 4}}
+@media(max-width:540px){.b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8,.b9{grid-column:span 2}}
+.bc.acc{background:var(--o);border-color:transparent}.bc.acc:hover{background:var(--o2)}.bc.acc .bcn,.bc.acc .bcd{color:#fff}.bc.acc .bc-iw{background:rgba(255,255,255,.15)}.bc.acc:hover .bcn{color:#fff}.bc.acc .bcs{color:var(--y)}
+.bc.dk{background:var(--br);border-color:transparent}.bc.dk .bcn{color:#fff}.bc.dk .bcd{color:rgba(255,255,255,.38)}.bc.dk .bc-iw{background:rgba(255,255,255,.08)}.bc.dk .bcs{color:var(--y)}.bc.dk:hover .bcn{color:var(--y)}
+.bc-iw{width:42px;height:42px;background:var(--pa);border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;border:1.5px solid rgba(30,13,4,.08)}
+.bci{font-size:20px;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.bcn{font-family:'Fraunces',serif;font-size:15px;font-weight:900;color:var(--br);margin-bottom:4px;line-height:1.2;transition:color .22s}
+.b2 .bcn,.b5 .bcn,.b9 .bcn{font-size:19px}
+.bcd{font-size:11px;font-weight:700;color:var(--br3);line-height:1.5}
+.bcs{color:var(--o);font-size:11px;margin-top:9px;letter-spacing:2px}
+.bc-bonus{grid-column:span 12;background:var(--br);border-radius:22px;padding:26px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;border:none;position:relative;overflow:hidden}
+@media(max-width:540px){.bc-bonus{grid-column:span 2}}
+.bc-bonus::before{content:'';position:absolute;right:0;top:0;bottom:0;width:38%;background:radial-gradient(ellipse at right center,rgba(240,90,26,.14) 0%,transparent 70%)}
+.bb-ico{font-size:40px;flex-shrink:0}
+.bb-t{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:var(--y);margin-bottom:5px}
+.bb-d{font-size:13px;font-weight:700;color:rgba(255,255,255,.38)}
+
+/* ── REVIEWS — horizontal drag scroll ── */
+.rev-sec{background:var(--br);overflow:hidden}
+.rev-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 15% 85%,rgba(245,200,66,.04) 0%,transparent 70%)}
+.rev-scroll{
+  display:flex;gap:18px;overflow-x:auto;
+  padding:36px 32px 26px;
+  scrollbar-width:thin;scrollbar-color:rgba(240,90,26,.35) rgba(255,255,255,.04);
+  cursor:grab;
+}
+@media(max-width:640px){.rev-scroll{padding:30px 20px 20px}}
+.rev-scroll:active{cursor:grabbing}
+.rev-scroll::-webkit-scrollbar{height:3px}
+.rev-scroll::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:2px}
+.rev-scroll::-webkit-scrollbar-thumb{background:rgba(240,90,26,.35);border-radius:2px}
+.rcard{
+  flex:0 0 300px;background:var(--pa);border-radius:22px;
+  padding:30px 20px 22px;position:relative;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+@media(max-width:640px){.rcard{flex:0 0 260px}}
+.rcard::before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:16px;height:16px;background:var(--o);border-radius:50%;border:3px solid var(--br);box-shadow:0 0 0 2px rgba(240,90,26,.28)}
+.rcard:nth-child(odd){transform:rotate(-1.3deg);margin-top:18px}
+.rcard:nth-child(even){transform:rotate(.9deg)}
+.rcard:hover{transform:rotate(0deg) translateY(-9px) scale(1.03)!important}
+.rv-s{color:var(--o);font-size:13px;margin-bottom:11px;letter-spacing:2px}
+.rv-t{font-size:14px;font-weight:700;color:var(--br2);line-height:1.7;margin-bottom:12px;font-style:italic}
+.rv-t::before{content:'\201C';color:var(--o);font-size:22px;line-height:0;vertical-align:-.5em;margin-right:2px}
+.rv-t::after{content:'\201D';color:var(--o);font-size:22px;line-height:0;vertical-align:-.5em;margin-left:2px}
+.rv-a{font-size:10px;font-weight:900;color:var(--br3);text-transform:uppercase;letter-spacing:.5px}
+
+/* ── AUTHOR ── */
+.author-sec{background:var(--grl);border-top:3px solid rgba(42,157,118,.14);border-bottom:3px solid rgba(42,157,118,.14)}
+.author-sec::before{content:'';position:absolute;top:0;right:0;bottom:0;width:38%;background:radial-gradient(ellipse at right center,rgba(42,157,118,.09) 0%,transparent 70%)}
+.author-lay{display:grid;grid-template-columns:340px 1fr;gap:70px;align-items:center}
+@media(max-width:820px){.author-lay{grid-template-columns:1fr;gap:40px}}
+.author-vis{position:relative}
+.author-img{background:var(--wh);border-radius:36px;aspect-ratio:1;overflow:hidden;box-shadow:0 26px 70px rgba(42,157,118,.18),12px 12px 0 rgba(42,157,118,.13);border:3px solid rgba(42,157,118,.13);transform:rotate(-2.5deg);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.author-img:hover{transform:rotate(0deg)}
+.author-img img{width:100%;height:100%;object-fit:cover}
+.author-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--gr);padding:20px;text-align:center}
+.author-ph .ico{font-size:72px;opacity:.22}
+.author-ph p{font-size:13px;font-weight:800;opacity:.55}
+.abadge{position:absolute;bottom:-12px;right:-8px;background:var(--o);color:#fff;border-radius:50px;padding:8px 16px;font-weight:900;font-size:11px;border:3px solid var(--grl);box-shadow:0 5px 18px rgba(240,90,26,.28)}
+.aey{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--gr);margin-bottom:12px}
+.aname{font-family:'Fraunces',serif;font-size:clamp(34px,5vw,52px);font-weight:900;letter-spacing:-2px;color:var(--br);line-height:.9;margin-bottom:16px}
+.abio{font-size:16px;font-weight:700;color:var(--br2);line-height:1.65;margin-bottom:26px}
+.anums{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:24px}
+.an-n{font-family:'Fraunces',serif;font-size:28px;font-weight:900;color:var(--br);display:block;line-height:1}
+.an-l{font-size:10px;font-weight:900;color:var(--br3);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.abtn{display:inline-flex;align-items:center;gap:9px;background:var(--gr);color:#fff;border-radius:50px;padding:11px 26px;font-weight:900;font-size:14px;text-decoration:none;transition:background .2s,transform .2s;box-shadow:0 4px 0 rgba(0,0,0,.13),0 8px 22px rgba(42,157,118,.28)}
+.abtn:hover{background:#228e65;transform:translateY(-2px)}
+
+/* ── OFFER ── */
+.offer-sec{background:var(--o);position:relative;overflow:hidden}
+.offer-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 98% 0%,rgba(255,255,255,.11) 0%,transparent 58%),radial-gradient(ellipse 55% 75% at 2% 100%,rgba(0,0,0,.07) 0%,transparent 58%)}
+.offer-sec::after{content:'25';position:absolute;right:-15px;top:50%;transform:translateY(-50%);font-family:'Fraunces',serif;font-size:360px;font-weight:900;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;animation:numDrift 9s ease-in-out infinite}
+@keyframes numDrift{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-52%) translateX(-8px)}}
+.offer-in{max-width:740px;position:relative;z-index:1}
+.oey{font-size:10px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:14px}
+.oh{font-family:'Fraunces',serif;font-size:clamp(36px,6vw,66px);font-weight:900;color:#fff;letter-spacing:-2px;line-height:.92;margin-bottom:46px}
+.oh em{font-style:italic;color:var(--y)}
+.ocards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+@media(max-width:480px){.ocards{grid-template-columns:1fr}}
+.oc{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.14);border-radius:26px;padding:28px 22px;backdrop-filter:blur(10px);transition:background .2s,border-color .2s,transform .2s}
+.oc:hover{background:rgba(255,255,255,.17);border-color:rgba(255,255,255,.32);transform:translateY(-4px)}
+.oc.ft{background:rgba(255,255,255,.19);border-color:rgba(255,255,255,.58);box-shadow:0 0 0 1px rgba(255,255,255,.18),0 18px 44px rgba(0,0,0,.1)}
+.ocbadge{font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:var(--y);margin-bottom:10px}
+.oc.ft .ocbadge{background:rgba(255,255,255,.14);display:inline-block;padding:3px 11px;border-radius:50px}
+.ocfmt{font-size:12px;color:rgba(255,255,255,.46);font-weight:800;margin-bottom:7px}
+.ocprice{font-family:'Fraunces',serif;font-size:46px;font-weight:900;color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:5px}
+.oc.ft .ocprice{color:var(--y)}
+.ocnote{font-size:11px;color:rgba(255,255,255,.38);font-weight:700;margin-bottom:20px}
+.ocbtn{display:block;width:100%;padding:13px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:900;font-size:14px;text-align:center;text-decoration:none;cursor:pointer;border:none;transition:all .18s}
+.oc.ft .ocbtn{background:#fff;color:var(--o);box-shadow:0 4px 0 rgba(0,0,0,.1)}
+.oc.ft .ocbtn:hover{transform:translateY(-2px)}
+.oc:not(.ft) .ocbtn{background:rgba(255,255,255,.11);color:#fff;border:2px solid rgba(255,255,255,.18)}
+.oc:not(.ft) .ocbtn:hover{background:rgba(255,255,255,.2)}
+.onote{font-size:12px;color:rgba(255,255,255,.28);font-weight:700}
+
+/* ── FAQ ── */
+.faq-sec{background:var(--cr)}
+.fq{border-bottom:2px solid rgba(30,13,4,.08)}
+.fq-btn{width:100%;background:none;border:none;text-align:left;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:14px;font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;color:var(--br);cursor:pointer;transition:color .2s}
+.fq-btn:hover{color:var(--o)}
+.fq-ic{width:34px;height:34px;background:var(--pa);border:2px solid rgba(30,13,4,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;transition:background .2s,transform .38s cubic-bezier(.34,1.56,.64,1);color:var(--br)}
+.fq.open .fq-ic{background:var(--o);color:#fff;border-color:var(--o);transform:rotate(45deg)}
+.fq-a{font-size:14px;font-weight:700;color:var(--br2);line-height:1.7;padding-bottom:20px;display:none}
+.fq.open .fq-a{display:block}
+.faq-wrap{max-width:700px}
+
+/* ── FINAL ── */
+.final-sec{background:var(--br);padding:120px 32px;text-align:center;position:relative;overflow:hidden}
+@media(max-width:640px){.final-sec{padding:80px 20px}}
+.final-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(240,90,26,.11) 0%,transparent 62%);animation:glow 5s ease-in-out infinite}
+@keyframes glow{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.12)}}
+.fh{font-family:'Fraunces',serif;font-size:clamp(46px,10vw,106px);font-weight:900;letter-spacing:-3px;line-height:.88;color:#fff;margin-bottom:18px;position:relative;z-index:1}
+.fh em{font-style:italic;color:var(--o)}
+.fsub{font-size:17px;font-weight:700;color:rgba(255,255,255,.38);margin-bottom:46px;position:relative;z-index:1}
+.fbtn{display:inline-block;background:var(--o);color:#fff;border:none;border-radius:50px;padding:20px 52px;font-family:'Nunito',sans-serif;font-weight:900;font-size:18px;cursor:pointer;text-decoration:none;box-shadow:0 7px 0 rgba(0,0,0,.22),0 18px 52px rgba(240,90,26,.3);transition:transform .15s,box-shadow .15s;position:relative;z-index:1;overflow:hidden}
+.fbtn::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);animation:shine 3s 3s infinite}
+.fbtn:hover{transform:translateY(-4px);box-shadow:0 11px 0 rgba(0,0,0,.22),0 26px 62px rgba(240,90,26,.38)}
+.fbtn:active{transform:translateY(2px);box-shadow:0 3px 0 rgba(0,0,0,.22)}
+
+footer{background:#120802;padding:28px 32px;text-align:center;font-size:12px;font-weight:700;color:rgba(255,255,255,.24);border-top:2px solid rgba(255,255,255,.05)}
+footer a{color:rgba(255,255,255,.4);text-decoration:none}
+footer a:hover{color:var(--y)}
+
+/* ── SCROLL REVEAL ── */
+.r{opacity:0;transform:translateY(44px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.r.fl{transform:translateX(-44px)}.r.fr{transform:translateX(44px)}
+.r.vis{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+</style>
+</head>
+<body>
+<div id="cur">
+  <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 22L8.5 14L20 4L24 8L12 20L6 22Z" fill="#F05A1A" stroke="#1E0D04" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M8.5 14L14 19.5" stroke="#1E0D04" stroke-width="1.5"/>
+    <path d="M18 6L22 10" stroke="#FFD580" stroke-width="1.5"/>
+  </svg>
+</div>
+
+<div class="sbar">
+  <p>25 ігор на папері · PDF</p>
+  <a href="https://secure.wayforpay.com/payment/25igornapaperi" onclick="fbq('track','InitiateCheckout')">199 ₴ →</a>
+</div>
+
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-mark"><svg viewBox="0 0 20 20"><path d="M4 14l4-8 4 5 2-3 3 6H4z"/></svg></div>
+    Татусігри
+  </a>
+  <div class="nav-r">
+    <a class="nav-lnk" href="#games">Ігри</a>
+    <a class="nav-lnk" href="#offer">Ціни</a>
+    <a class="nav-buy" href="https://secure.wayforpay.com/payment/25igornapaperi" target="_blank" onclick="fbq('track','ViewContent')">Купити 199 ₴</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <!-- bg doodles -->
+  <svg class="doodle" style="top:11%;left:7%;width:56px;opacity:.3;animation:flt 6s ease-in-out infinite" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" stroke="#F05A1A" stroke-width="2" stroke-dasharray="5 4"/></svg>
+  <svg class="doodle" style="top:18%;right:10%;width:42px;opacity:.22;animation:flt 8s 1s ease-in-out infinite" viewBox="0 0 42 42" fill="none"><polygon points="21,3 27,15 40,15 30,23 34,37 21,29 8,37 12,23 2,15 15,15" stroke="#F5C842" stroke-width="2"/></svg>
+  <svg class="doodle" style="bottom:22%;left:4%;width:34px;opacity:.18;animation:flt 7s 2s ease-in-out infinite reverse" viewBox="0 0 34 34" fill="none"><rect x="3" y="3" width="28" height="28" rx="8" stroke="#2A9D76" stroke-width="2" stroke-dasharray="4 3"/></svg>
+  <svg class="doodle" style="bottom:28%;right:6%;width:46px;opacity:.18;animation:flt 9s .5s ease-in-out infinite" viewBox="0 0 46 46" fill="none"><path d="M23 4C34 4 42 12 42 23C42 34 34 42 23 42C12 42 4 34 4 23C4 12 12 4 23 4Z" stroke="#F05A1A" stroke-width="1.8" stroke-dasharray="4 3"/></svg>
+
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div>
+      <div class="hero-pill"><div class="pill-dot"></div>Від класики до сучасних хітів · 5–105 років</div>
+      <h1 class="hero-h">
+        <span class="l1">Грайте</span>
+        <span class="l2">разом.</span>
+        <span class="l3">Без екранів.</span>
+      </h1>
+      <p class="hero-lead">25 перевірених ігор на папері для теплих сімейних моментів. У машині, кафе або вдома — тільки ти, дитина і два олівці.</p>
+      <div class="chips">
+        <span class="chip">✏️ Поле вже намальоване</span>
+        <span class="chip">📹 Відео до кожної гри</span>
+        <span class="chip">⚡ PDF миттєво на пошту</span>
+      </div>
+      <div class="hero-btns">
+        <a href="https://secure.wayforpay.com/payment/25igornapaperi" class="btn-main" target="_blank"
+           onclick="fbq('track','AddToCart',{content_name:'25 PDF',value:199,currency:'UAH'})">
+          Отримати за 199 ₴
+        </a>
+        <a href="https://secure.wayforpay.com/payment/25igorbloknot" class="btn-alt" target="_blank">
+          <strong>або 449 ₴</strong>
+          <small>блокнот A5 · доставка НП</small>
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="hero-card-side">
+      <div class="fst a"><svg width="52" height="52" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" fill="#F5C842" stroke="#1E0D04" stroke-width="2"/><text x="26" y="34" text-anchor="middle" font-size="20" font-family="sans-serif">🎲</text></svg></div>
+      <div class="fst b"><svg width="48" height="48" viewBox="0 0 48 48"><rect x="3" y="3" width="42" height="42" rx="13" fill="#F05A1A" stroke="#1E0D04" stroke-width="2"/><text x="24" y="32" text-anchor="middle" font-size="18" font-family="sans-serif">✏️</text></svg></div>
+      <div class="fst c"><svg width="42" height="42" viewBox="0 0 42 42"><polygon points="21,3 26,15 40,15 29,23 33,37 21,29 9,37 13,23 2,15 16,15" fill="#F5C842" stroke="#1E0D04" stroke-width="1.5"/></svg></div>
+      <div class="hcard">
+        <div class="hc-top">
+          <div class="hc-dots">
+            <div class="hc-dot" style="background:#F05A1A"></div>
+            <div class="hc-dot" style="background:#F5C842"></div>
+            <div class="hc-dot" style="background:#2A9D76"></div>
+          </div>
+          <div class="hc-lbl">31 сторінка</div>
+        </div>
+        <div class="hc-title">25 кращих<br>ігор на папері</div>
+        <div class="gr"><span class="gn">1</span><span class="gname">Морський бій</span><span class="gdif">★☆☆</span></div>
+        <div class="gr"><span class="gn">2</span><span class="gname">Чорна діра</span><span class="gdif">★★★</span></div>
+        <div class="gr"><span class="gn">3</span><span class="gname">Фломастерні перегони</span><span class="gdif">★★☆</span></div>
+        <div class="gr"><span class="gn">4</span><span class="gname">Паперовий футбол</span><span class="gdif">★★★</span></div>
+        <div class="gr"><span class="gn">5</span><span class="gname">Мега хрестики-нулики</span><span class="gdif">★★☆</span></div>
+        <div class="hc-more"><div class="hc-more-dot"></div><span>+ ще 20 ігор у збірці…</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<div class="proof">
+  <div class="proof-row">
+    <div class="pi"><span class="pin">75К</span><span class="pil">підписників Instagram</span></div>
+    <div class="pi"><span class="pin">25</span><span class="pil">ігор у збірці</span></div>
+    <div class="pi"><span class="pin">31</span><span class="pil">сторінка PDF</span></div>
+    <div class="pi"><span class="pin">5+</span><span class="pil">збірок і матеріалів</span></div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="mq-wrap"><div class="mq"><span class="mq-it">Морський бій</span><span class="mq-it">Чорна діра</span><span class="mq-it">Паперовий футбол</span><span class="mq-it">Фломастерні перегони</span><span class="mq-it">Мега хрестики-нулики</span><span class="mq-it">Шифрувальники</span><span class="mq-it">Змійка-збирач</span><span class="mq-it">Геометричний батл</span><span class="mq-it">Захоплення територій</span><span class="mq-it">Числовий лабіринт</span><span class="mq-it">Морський бій</span><span class="mq-it">Чорна діра</span><span class="mq-it">Паперовий футбол</span><span class="mq-it">Фломастерні перегони</span><span class="mq-it">Мега хрестики-нулики</span><span class="mq-it">Шифрувальники</span><span class="mq-it">Змійка-збирач</span><span class="mq-it">Геометричний батл</span><span class="mq-it">Захоплення територій</span><span class="mq-it">Числовий лабіринт</span></div></div>
+
+<!-- MOMENTS (замість problem) -->
+<section class="sec moments-sec">
+  <div class="inner" style="position:relative;z-index:1">
+    <div class="eyebrow r" style="color:rgba(245,200,66,.5)">Для кого це</div>
+    <h2 class="sh r d1" style="color:#fff">Коли хочеш<br><em style="color:var(--o2);font-style:italic">бути поруч.</em></h2>
+    <div class="moments-grid">
+      <div class="mc r d1">
+        <div class="mc-num">01</div>
+        <div class="mc-icon">🚗</div>
+        <div class="mc-title">У дорозі</div>
+        <p class="mc-text">Довга поїздка, черга, кафе — замість телефону беш блокнот або відкриваєш PDF</p>
+      </div>
+      <div class="mc r d2">
+        <div class="mc-num">02</div>
+        <div class="mc-icon">🏠</div>
+        <div class="mc-title">Вдома разом</div>
+        <p class="mc-text">Замість кожен у своєму екрані — 20 хвилин за грою, які запам'ятовуються</p>
+      </div>
+      <div class="mc r d3">
+        <div class="mc-num">03</div>
+        <div class="mc-icon">👨‍👩‍👧</div>
+        <div class="mc-title">Для всієї сім'ї</div>
+        <p class="mc-text">Бабуся, дідусь, старші діти — правила за хвилину, грають усі від 5 до 105 років</p>
+      </div>
+      <div class="mc r d4">
+        <div class="mc-num">04</div>
+        <div class="mc-icon">🎁</div>
+        <div class="mc-title">Як подарунок</div>
+        <p class="mc-text">Блокнот A5 з пружинкою — готовий подарунок батькам, вихователям, вчителям</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec how-sec">
+  <div class="inner">
+    <div class="eyebrow r" style="color:var(--br3)">Як це працює</div>
+    <h2 class="sh r d1" style="color:var(--br)">Простіше ніж<br><em style="color:var(--o);font-style:italic">здається.</em></h2>
+    <div class="steps">
+      <div class="step r fl">
+        <div class="step-l"><div class="step-circle">1</div><div class="step-line"></div></div>
+        <div class="step-body">
+          <span class="step-tag">Покупка</span>
+          <div class="step-title">Купуєш PDF</div>
+          <p class="step-desc">Оплата через WayForPay. Посилання приходить на пошту за 1–2 хвилини після оплати.</p>
+        </div>
+      </div>
+      <div class="step r fl d1">
+        <div class="step-l"><div class="step-circle">2</div><div class="step-line"></div></div>
+        <div class="step-body">
+          <span class="step-tag">Відкрий</span>
+          <div class="step-title">Відкрий на телефоні</div>
+          <p class="step-desc">Поле для кожної гри вже намальоване. Роздрукуй або грай прямо з екрану.</p>
+        </div>
+      </div>
+      <div class="step r fl d2">
+        <div class="step-l"><div class="step-circle">3</div><div class="step-line"></div></div>
+        <div class="step-body">
+          <span class="step-tag">Грай</span>
+          <div class="step-title">Перша гра вже сьогодні</div>
+          <p class="step-desc">Поясни правила за хвилину. QR-код на сторінці — і відео підкаже як грати. Ніякої підготовки.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAMES BENTO -->
+<section class="sec games-sec" id="games">
+  <div class="inner" style="position:relative;z-index:1">
+    <div class="eyebrow r" style="color:var(--br3)">Що всередині</div>
+    <h2 class="sh r d1" style="color:var(--br)">25 ігор. Знайомі і<br><em style="color:var(--o);font-style:italic">нові відкриття.</em></h2>
+    <div class="bento">
+      <div class="bc b1 r d1"><div class="bc-iw"><span class="bci">🚢</span></div><div class="bcn">Морський бій</div><div class="bcd">Готове поле для двох флотів</div><div class="bcs">★☆☆</div></div>
+      <div class="bc b2 dk r d2"><div class="bc-iw"><span class="bci">⚫</span></div><div class="bcn">Чорна діра</div><div class="bcd">Математична дуель — вписуєш числа по черзі, останній вільний стає «чорною дірою»</div><div class="bcs">★★★</div></div>
+      <div class="bc b3 r d3"><div class="bc-iw"><span class="bci">🏎️</span></div><div class="bcn">Фломастерні перегони</div><div class="bcd">Штовхаєш маркер пальцем по трасі</div><div class="bcs">★★☆</div></div>
+      <div class="bc b4 acc r d1"><div class="bc-iw"><span class="bci">⚽</span></div><div class="bcn">Паперовий футбол</div><div class="bcd">Ведеш лінію-м'яч через рикошети до воріт</div><div class="bcs">★★★</div></div>
+      <div class="bc b5 r d2"><div class="bc-iw"><span class="bci">✖️</span></div><div class="bcn">Мега хрестики-нулики</div><div class="bcd">9 малих сіток в одній — кожен хід відправляє суперника в потрібну секцію</div><div class="bcs">★★☆</div></div>
+      <div class="bc b6 r d3"><div class="bc-iw"><span class="bci">🗺️</span></div><div class="bcn">Числовий лабіринт</div><div class="bcd">З'єднуєш числа не перетинаючи ліній</div><div class="bcs">★★☆</div></div>
+      <div class="bc b7 r d1"><div class="bc-iw"><span class="bci">🔒</span></div><div class="bcn">Шифрувальники</div><div class="bcd">Пишеш таємне послання символами</div><div class="bcs">★☆☆</div></div>
+      <div class="bc b8 r d2"><div class="bc-iw"><span class="bci">🖐️</span></div><div class="bcn">Долоньки</div><div class="bcd">Обводиш руку — хто швидше?</div><div class="bcs">★☆☆</div></div>
+      <div class="bc b9 r d3"><div class="bc-iw"><span class="bci" style="font-size:17px">➕</span></div><div class="bcn">+ ще 17 ігор</div><div class="bcd">Мозаїка · Петля · Змійка-збирач · Сигнал SOS · Закарлючки · Рятівники · Перехрестя · і ще…</div><div class="bcs">★ до ★★★</div></div>
+      <div class="bc bc-bonus r"><span class="bb-ico">🎯</span><div><div class="bb-t">Бонус: кубик-генератор «Татусігри»</div><div class="bb-d">Гральні кубики · таймер · лічильник балів · генератор слів для Крокодила — у кожному файлі</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="sec rev-sec" style="padding-bottom:60px">
+  <div class="inner" style="position:relative;z-index:1">
+    <div class="eyebrow r" style="color:rgba(245,200,66,.5)">Батьки кажуть</div>
+    <h2 class="sh r d1" style="color:#fff">Реальні відгуки.<br><em style="color:var(--y);font-style:italic">Без редагування.</em></h2>
+  </div>
+  <div class="rev-scroll" id="rs">
+    <div class="rcard"><div class="rv-s">★★★★★</div><p class="rv-t">Файл — скарб! Цікаві та легкі ідеї. Формат дуже зручний — все компактно та зрозуміло. Тепер завжди під рукою.</p><div class="rv-a">Покупець збірки</div></div>
+    <div class="rcard"><div class="rv-s">★★★★★</div><p class="rv-t">Я ще тільки половину прочитала і вже в захваті! Мега крута збірка за смішні гроші.</p><div class="rv-a">Покупець збірки</div></div>
+    <div class="rcard"><div class="rv-s">★★★★★</div><p class="rv-t">Просто відкрила — і ми вже в грі. Щиро дякую за роботу. Рекомендую всім знайомим!</p><div class="rv-a">Мама, після покупки</div></div>
+    <div class="rcard"><div class="rv-s">★★★★★</div><p class="rv-t">Рік шукала збірку активностей без підготовки. Ваш файл це кладязь! Перечитала все на одному подиху.</p><div class="rv-a">Покупець збірки</div></div>
+    <div class="rcard"><div class="rv-s">★★★★★</div><p class="rv-t">Деякі ігри можна використовувати для тренування іноземних мов. Чудова збірка!</p><div class="rv-a">Покупець збірки</div></div>
+    <div class="rcard"><div class="rv-s">★★★★★</div><p class="rv-t">Стільки ігор на увагу — якої так не вистачає дітям через постійні зміни діяльності.</p><div class="rv-a">Покупець збірки</div></div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="sec author-sec">
+  <div class="inner" style="position:relative;z-index:1">
+    <div class="author-lay">
+      <div class="author-vis r fl">
+        <div class="author-img">
+          <!-- ЗАМІНИТИ: <img src="vitaliy.jpg" alt="Віталій Голоунін"> -->
+          <div class="author-ph">
+            <div class="ico">👤</div>
+            <p>Фото Віталія<br><small style="opacity:.55">Замінити на реальне</small></p>
+          </div>
+        </div>
+        <div class="abadge">Тато · Ведучий · Автор</div>
+      </div>
+      <div class="r d1">
+        <div class="aey">Хто створив збірку</div>
+        <h3 class="aname">Віталій<br>Голоунін</h3>
+        <p class="abio">Тато з 6-річним стажем і ведучий заходів із 12-річним досвідом. Відібрав лише ті ігри, що справді зближують і працюють у реальному житті.</p>
+        <div class="anums">
+          <div><span class="an-n">75K</span><span class="an-l">в Instagram</span></div>
+          <div><span class="an-n">12+</span><span class="an-l">років досвіду</span></div>
+          <div><span class="an-n">5+</span><span class="an-l">збірок</span></div>
+        </div>
+        <a class="abtn" href="https://www.instagram.com/vitalii.golounin/" target="_blank">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none"/></svg>
+          @vitalii.golounin
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="sec offer-sec" id="offer">
+  <div class="inner offer-in">
+    <div class="oey r">Обери формат</div>
+    <h2 class="oh r d1">25 кращих ігор<br>на <em>папері</em></h2>
+    <div class="ocards r d2">
+      <div class="oc ft">
+        <div class="ocbadge">⚡ Миттєво</div>
+        <div class="ocfmt">PDF · 31 сторінка</div>
+        <div class="ocprice">199 ₴</div>
+        <div class="ocnote">Посилання на пошту за 1–2 хв</div>
+        <a href="https://secure.wayforpay.com/payment/25igornapaperi" class="ocbtn" target="_blank"
+           onclick="fbq('track','InitiateCheckout',{content_name:'25 PDF',value:199,currency:'UAH'})">Купити PDF</a>
+      </div>
+      <div class="oc">
+        <div class="ocbadge">Фізичний продукт</div>
+        <div class="ocfmt">Блокнот A5 · пружинка</div>
+        <div class="ocprice">449 ₴</div>
+        <div class="ocnote">Нова Пошта · 2 дні</div>
+        <a href="https://secure.wayforpay.com/payment/25igorbloknot" class="ocbtn" target="_blank"
+           onclick="fbq('track','InitiateCheckout',{content_name:'25 блокнот'})">Замовити блокнот</a>
+      </div>
+    </div>
+    <p class="onote r">🔒 WayForPay · Питання → Instagram</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-sec">
+  <div class="inner">
+    <div class="eyebrow r" style="color:var(--br3)">Питання і відповіді</div>
+    <h2 class="sh r d1" style="color:var(--br)">Маєш питання?<br><em style="color:var(--o);font-style:italic">Відповідаємо.</em></h2>
+    <div class="faq-wrap">
+      <div class="fq"><button class="fq-btn" onclick="tF(this)">Як отримаю PDF після оплати?<span class="fq-ic">+</span></button><div class="fq-a">Після оплати на пошту надійде лист із посиланням — 1–2 хвилини. Перевір папку «Спам». При оплаті через Apple Pay лист може прийти на пошту з контактної інформації цього сервісу.</div></div>
+      <div class="fq"><button class="fq-btn" onclick="tF(this)">Для якого віку підходить збірка?<span class="fq-ic">+</span></button><div class="fq-a">Від 5 до 105 років. Кожна гра має рівень складності від 1 до 3 зірок — є прості для малюків і є такі, де дорослий теж напружиться. Ідеально для спільної гри батьків і дітей.</div></div>
+      <div class="fq"><button class="fq-btn" onclick="tF(this)">Чи можна роздрукувати PDF?<span class="fq-ic">+</span></button><div class="fq-a">Так, збірка оптимізована для друку на A4. Роздрукуй вдома або у друкарні. Або відкривай на телефоні — обидва способи зручні.</div></div>
+      <div class="fq"><button class="fq-btn" onclick="tF(this)">Що таке кубик-генератор «Татусігри»?<span class="fq-ic">+</span></button><div class="fq-a">Безкоштовний цифровий інструмент у кожному файлі. Гральні кубики, таймер, лічильник балів і генератор слів для Крокодила — у телефоні, коли фізичного кубика немає під рукою.</div></div>
+      <div class="fq"><button class="fq-btn" onclick="tF(this)">Чим відрізняється блокнот від PDF?<span class="fq-ic">+</span></button><div class="fq-a">PDF — файл одразу на пошту. Блокнот — 60 сторінок A5 з матовою обкладинкою і пружинкою зліва. Поле для гри вже в блокноті — кидаєш у сумку і поїхав. Доставка Новою Поштою за 2 дні.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final-sec">
+  <h2 class="fh r">Перша гра —<br><em>вже сьогодні.</em></h2>
+  <p class="fsub r d1">PDF на пошту за 1–2 хвилини після оплати</p>
+  <a href="https://secure.wayforpay.com/payment/25igornapaperi" class="fbtn r d2" target="_blank"
+     onclick="fbq('track','InitiateCheckout',{content_name:'25 PDF final',value:199,currency:'UAH'})">
+    Отримати збірку — 199 ₴
+  </a>
+</section>
+
+<footer>
+  <p>© 2025 Татусігри · <a href="https://www.instagram.com/vitalii.golounin/">Instagram</a> · <a href="https://tatusigry.wayforpay.link/">Всі продукти</a></p>
+  <p style="margin-top:5px">ФОП Голоунін В. · WayForPay</p>
+</footer>
+
+<script>
+/* Pencil cursor — smooth follow */
+const cur=document.getElementById('cur');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function tick(){cx+=(mx-cx)*.13;cy+=(my-cy)*.13;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(tick)})();
+document.querySelectorAll('a,button,.bc,.mc,.rcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cur.classList.add('grow'));
+  el.addEventListener('mouseleave',()=>cur.classList.remove('grow'));
+});
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(ee=>{ee.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+/* Drag scroll reviews */
+const rs=document.getElementById('rs');
+let dn=false,sx,sl;
+rs.addEventListener('mousedown',e=>{dn=true;sx=e.pageX-rs.offsetLeft;sl=rs.scrollLeft});
+rs.addEventListener('mouseleave',()=>dn=false);
+rs.addEventListener('mouseup',()=>dn=false);
+rs.addEventListener('mousemove',e=>{if(!dn)return;e.preventDefault();rs.scrollLeft=sl-(e.pageX-rs.offsetLeft-sx)*1.4});
+
+/* FAQ */
+function tF(b){const i=b.parentElement,o=i.classList.contains('open');document.querySelectorAll('.fq').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')}
+
+/* 3D tilt on bento cards */
+document.querySelectorAll('.bc:not(.bc-bonus)').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`translateY(-7px) scale(1.02) rotateY(${x*9}deg) rotateX(${-y*9}deg)`;
+  });
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+
+/* Parallax doodles */
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  document.querySelectorAll('.doodle').forEach((d,i)=>{d.style.transform=`translateY(${y*[.2,.3,.14,.22][i]||.2}px)`});
+},{ passive:true });
+</script>
+</body>
+</html>
