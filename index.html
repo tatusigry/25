@@ -430,10 +430,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;ali
     <line x1="3" y1="56" x2="53" y2="56" stroke="#241197" stroke-width="1.5"/>
     <line x1="14" y1="3" x2="14" y2="69" stroke="#241197" stroke-width=".8" stroke-dasharray="3 3"/>
   </svg>
-  <svg class="doodle" style="top:14%;right:6%;width:44px;opacity:.18;animation:float 7s 1s ease-in-out infinite" viewBox="0 0 44 44" fill="none">
-    <line x1="4" y1="4" x2="40" y2="40" stroke="#241197" stroke-width="2.5" stroke-linecap="round"/>
-    <line x1="40" y1="4" x2="4" y2="40" stroke="#241197" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="22" cy="22" r="20" stroke="#241197" stroke-width="1.8"/>
+  <!-- Хрестик — верхній правий кут героя -->
+  <svg class="doodle" style="top:14%;right:6%;width:48px;opacity:.22;animation:float 7s 1s ease-in-out infinite" viewBox="0 0 44 44" fill="none">
+    <line x1="4" y1="4" x2="40" y2="40" stroke="#F05A1A" stroke-width="3" stroke-linecap="round"/>
+    <line x1="40" y1="4" x2="4" y2="40" stroke="#F05A1A" stroke-width="3" stroke-linecap="round"/>
   </svg>
   <svg class="doodle" style="bottom:28%;right:4%;width:42px;opacity:.16;animation:floatSlow 11s 2s ease-in-out infinite" viewBox="0 0 42 42" fill="none">
     <polygon points="21,2 26,14 39,14 29,22 33,36 21,28 9,36 13,22 3,14 16,14" stroke="#F05A1A" stroke-width="2" fill="none"/>
@@ -465,8 +465,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;ali
         <span class="chip">⚡ PDF миттєво</span>
       </div>
       <div class="hero-btns">
-        <a href="https://secure.wayforpay.com/payment/25igornapaperi" class="btn-primary" target="_blank">Отримати PDF — 199 ₴</a>
-        <a href="https://secure.wayforpay.com/payment/25igorbloknot" class="btn-secondary" target="_blank">Блокнот А5 — 449 ₴</a>
+        <a href="https://secure.wayforpay.com/payment/paperoviigry" class="btn-primary" target="_blank">Отримати PDF — 199 ₴</a>
+        <a href="https://secure.wayforpay.com/payment/bloknotA5" class="btn-secondary" target="_blank">Блокнот А5 — 449 ₴</a>
       </div>
     </div>
     </div>
@@ -607,7 +607,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;ali
 </section>
 
 <!-- OFFER -->
-<section class="sec offer-sec" id="offer">
+<section class="sec offer-sec" id="offer" style="position:relative;overflow:hidden">
+  <!-- Нулик — декоративний, правий край -->
+  <svg style="position:absolute;top:10%;right:-18px;width:90px;opacity:.10;animation:floatSlow 10s 1.5s ease-in-out infinite;pointer-events:none;z-index:0" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="40" cy="40" r="34" stroke="#241197" stroke-width="4" stroke-linecap="round"/>
+  </svg>
   <div class="inner">
     <div class="eyebrow r" style="color:var(--tx3)">Оберіть формат</div>
     <h2 class="sh r d1">25 кращих ігор<br><span class="na-o">на</span> <em>папері</em></h2>
@@ -617,14 +621,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;ali
         <div class="oc-fmt">PDF · 31 сторінка</div>
         <div class="oc-price">199 ₴</div>
         <div class="oc-note">Відкривається одразу · дублікат на пошту</div>
-        <a href="https://secure.wayforpay.com/payment/25igornapaperi" class="oc-btn" target="_blank">Купити PDF</a>
+        <a href="https://secure.wayforpay.com/payment/paperoviigry" class="oc-btn" target="_blank">Купити PDF</a>
       </div>
       <div class="oc oc-nb">
         <div class="oc-badge">📦 Фізична копія</div>
         <div class="oc-fmt">Блокнот A5 · 62 сторінки</div>
         <div class="oc-price">449 ₴</div>
         <div class="oc-note">Матова обкладинка · пружинка · НП 2 дні</div>
-        <a href="https://secure.wayforpay.com/payment/25igorbloknot" class="oc-btn-blue" target="_blank">Замовити блокнот</a>
+        <a href="https://secure.wayforpay.com/payment/bloknotA5" class="oc-btn-blue" target="_blank">Замовити блокнот</a>
       </div>
     </div>
     <p class="offer-note r d3">🔒 Захищена оплата WayForPay · Питання → <a href="https://instagram.com/vitalii.golounin" target="_blank" rel="noopener noreferrer" style="color:var(--ink)">Instagram</a></p>
@@ -653,8 +657,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;ali
     <h2 class="final-h r">Почніть грати<br><em>сьогодні.</em></h2>
     <p class="final-sub r d1">25 ігор на папері. PDF відкривається миттєво.</p>
     <div class="final-btns r d2">
-      <a href="https://secure.wayforpay.com/payment/25igornapaperi" class="btn-final" target="_blank">PDF — 199 ₴</a>
-      <a href="https://secure.wayforpay.com/payment/25igorbloknot" class="btn-final-o" target="_blank">Блокнот — 449 ₴</a>
+      <a href="https://secure.wayforpay.com/payment/paperoviigry" class="btn-final" target="_blank">PDF — 199 ₴</a>
+      <a href="https://secure.wayforpay.com/payment/bloknotA5" class="btn-final-o" target="_blank">Блокнот — 449 ₴</a>
     </div>
     <p class="final-note r d3">🔒 WayForPay · Apple Pay · Google Pay · Visa / Mastercard</p>
   </div>
